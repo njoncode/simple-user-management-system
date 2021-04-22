@@ -1,0 +1,23 @@
+html, body, #app {
+    margin: 0;
+    height: 100%;
+    width: 100%
+}
+
+
+.btn-clear {
+    background: transparent;
+    border: none;
+    font-size: 35px;
+}
+
+.dark {
+    /* color:#DADADA; */
+    color: #dadada;
+    background-color: black;
+    min-height: 100%;
+}
+
+.light {
+    background-color: white;
+} 
