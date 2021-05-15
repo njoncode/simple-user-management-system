@@ -70,7 +70,7 @@ export function Battle({ usernameInputRequestDispatch }) {
 
   return (
     <>
-      <h2>Battle Players</h2>
+      {/* <h2>Battle Players</h2> */}
       <BattleForm
         handleOnChange={handleOnChange}
         handleSubmit={handleSubmit}

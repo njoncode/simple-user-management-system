@@ -85,7 +85,6 @@ function Results({
 
   return (
     <>
-      <h1>Battle Result</h1>
       <ResultsForm
         scorePlayerOne={resultBattle[0].score}
         scorePlayerTwo={resultBattle[1].score}

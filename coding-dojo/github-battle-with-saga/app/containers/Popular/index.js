@@ -32,6 +32,8 @@ import {
 import Loading from '../Loading';
 import PopularPage from '../../components/PopularPage';
 
+import ThemeContext from '../contexts/theme';
+
 export function Popular({
   selectLanguageToFetchDataRequestDispatch,
   selectedLanguage,
@@ -42,6 +44,9 @@ export function Popular({
 }) {
   useInjectReducer({ key: 'popular', reducer });
   useInjectSaga({ key: 'popular', saga });
+
+  const theme = React.useContext(ThemeContext);
+  console.log('theme is: ', theme);
 
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
 
@@ -78,10 +83,11 @@ export function Popular({
 
   return (
     <>
-      <ul>
+      <ul className="lang-nav">
         {languages.map(language => (
           <li key={language}>
             <button
+              className={`btn-lang-${theme}`}
               style={language === selectedLanguage ? { color: 'red' } : null}
               onClick={() => handleClick(language)}
             >

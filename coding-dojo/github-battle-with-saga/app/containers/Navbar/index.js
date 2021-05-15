@@ -20,7 +20,7 @@ import saga from './saga';
 
 import ThemeContext from '../contexts/theme';
 
-export function Navbar({ toggleTheme }) {
+export function NavbarCon({ toggleTheme }) {
   useInjectReducer({ key: 'navbar', reducer });
   useInjectSaga({ key: 'navbar', saga });
 

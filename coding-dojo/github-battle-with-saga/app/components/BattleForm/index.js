@@ -8,15 +8,55 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { FaUserFriends, FaBattleNet, FaTrophy } from 'react-icons/fa';
+import '../../styles/components/battleForm.css';
+
+import ThemeContext from '../../containers/contexts/theme';
+
 // import styled from 'styled-components';
 
 function Instructions() {
   return (
     <>
-      <h1>Instructions</h1>
-      <p>Enter two Github users</p>
-      <p>Battle</p>
-      <p>See the winner</p>
+      <p className="instr">Instructions</p>
+
+      <div className="battle-instructions">
+        <div className="icons-container">
+          <p className="icon-header">Enter two Github users</p>
+          <FaUserFriends
+            size="180px"
+            color="rgb(238, 182, 78)"
+            style={{
+              background: 'rgb(226, 221, 221)',
+              padding: '40px',
+            }}
+          />
+        </div>
+
+        <div className="icons-container">
+          <p>Battle</p>
+          <FaBattleNet
+            size="180px"
+            color="grey"
+            style={{
+              background: 'rgb(226, 221, 221)',
+              padding: '40px',
+            }}
+          />
+        </div>
+
+        <div className="icons-container">
+          <p>See the winner</p>
+          <FaTrophy
+            size="180px"
+            color="rgba(247, 247, 47, 0.952)"
+            style={{
+              background: 'rgb(226, 221, 221)',
+              padding: '40px',
+            }}
+          />
+        </div>
+      </div>
     </>
   );
 }
@@ -28,13 +68,17 @@ function PlayersInput({
   usernameInputState,
   id,
 }) {
+  const theme = React.useContext(ThemeContext);
+
   return (
     <>
       {/* <form onSubmit={handleSubmit}> */}
       <form onSubmit={handleSubmit}>
         <label htmlFor={label}>
           {label}
+          <br />
           <input
+            className="input-text"
             type="username"
             placeholder="Github Username"
             id={id}
@@ -42,7 +86,13 @@ function PlayersInput({
             onChange={event => handleOnChange(event)}
             name="username"
           />
-          <button disabled={!usernameInputState}>Submit</button>
+          <button
+            className="btn-submit"
+            // className={`btn-submit ${theme}`}
+            disabled={!usernameInputState}
+          >
+            Submit
+          </button>
         </label>
       </form>
     </>
@@ -64,44 +114,48 @@ function BattleForm({
   player1,
   player2,
 }) {
+  const theme = React.useContext(ThemeContext);
+
   return (
     <>
       <Instructions />
-      <h2>Players</h2>
-      <PlayersInput
-        label="Player One "
-        id="username1"
-        usernameInputState={usernameInputState.username1}
-        handleOnChange={event => handleOnChange(event)}
-        handleSubmit={handleSubmit}
-      />
-      <PlayersInput
-        label="Player Two "
-        id="username2"
-        usernameInputState={usernameInputState.username2}
-        handleOnChange={event => handleOnChange(event)}
-        handleSubmit={handleSubmit}
-      />
+      <p className="players">Players</p>
+      <div className="players-input">
+        <PlayersInput
+          label="Player One "
+          id="username1"
+          usernameInputState={usernameInputState.username1}
+          handleOnChange={event => handleOnChange(event)}
+          handleSubmit={handleSubmit}
+        />
+        <PlayersInput
+          label="Player Two "
+          id="username2"
+          usernameInputState={usernameInputState.username2}
+          handleOnChange={event => handleOnChange(event)}
+          handleSubmit={handleSubmit}
+        />
+        <br />
+      </div>
 
       {!!player1 && !!player2 && (
-        <button>
-          <Link
-            to={{
-              pathname: '/battle/results',
-              search: `?playerOne=${player1}&playerTwo=${player2}`,
-              state: {
-                player1,
-                player2,
-                // battleResult: JSON.parse(JSON.stringify(battleResult)),
-              },
-              // state: {
-              //   fromNotifications: true,
-              // },
-            }}
-          >
-            Battle
-          </Link>
-        </button>
+        <Link
+          to={{
+            pathname: '/battle/results',
+            search: `?playerOne=${player1}&playerTwo=${player2}`,
+            state: {
+              player1,
+              player2,
+              // battleResult: JSON.parse(JSON.stringify(battleResult)),
+            },
+            // state: {
+            //   fromNotifications: true,
+            // },
+          }}
+        >
+          <button className="btn-submit btn-battle">Battle</button>
+          {/* className={`btn-submit btn-battle ${theme}`} */}
+        </Link>
       )}
     </>
   );
