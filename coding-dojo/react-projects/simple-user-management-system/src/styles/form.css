@@ -1,0 +1,36 @@
+.form-container {
+  margin: 80px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 500px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+label,
+input {
+  padding: 10px;
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input {
+  background: #ecf0f3;
+  height: 40px;
+  border-radius: 50px;
+  font-size: 15px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+.error {
+  color: #db2269;
+  font-size: 0.8em;
+  display: relative;
+}

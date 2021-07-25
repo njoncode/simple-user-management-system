@@ -1,0 +1,85 @@
+.user-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.add-user {
+  margin: 40px;
+  text-align: center;
+  text-decoration: none;
+  position: absolute;
+  left: 40%;
+  border: none;
+  width: 20%;
+  background-color: rgb(76, 87, 87);
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+table {
+  margin: 150px auto;
+  width: 80%;
+  table-layout: fixed;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: center;
+}
+
+td,
+th {
+  height: 40px;
+}
+
+tr {
+  text-align: center;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+}
+
+.price-content {
+  font-weight: bolder;
+}
+
+.total-price {
+  font-size: 28px;
+  text-align: center;
+}
+
+.arrow-left {
+  padding-right: 8px;
+}
+
+.arrow-right {
+  padding-left: 8px;
+}
+
+button {
+  margin: 10px;
+}
+
+td.username {
+  position: relative;
+}
+
+.avatar {
+  position: absolute;
+  left: 50px;
+  bottom: 1.6px;
+}
+
+.name-user {
+  margin-left: 60px;
+}
